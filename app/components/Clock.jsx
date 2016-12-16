@@ -23,7 +23,6 @@ var Clock = React.createClass({
   },
   render: function () {
     var {totalSeconds} = this.props;
-    console.log(totalSeconds);
     return (
       <div className="clock">
         <span className="clock-text">
