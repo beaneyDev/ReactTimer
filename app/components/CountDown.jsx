@@ -22,6 +22,7 @@ var CountDown = React.createClass({
   startTimer: function() {
     this.timer = setInterval(() => {
       var newCount = this.state.count - 1;
+      console.log("HIT");
       this.setState({
         count: newCount >= 0 ? newCount : 0
       })
