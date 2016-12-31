@@ -28,6 +28,10 @@ var CountDown = React.createClass({
       }
     }
   },
+  componentWillUnmount: function() {
+    clearInterval(this.timer);
+    this.timer = undefined;
+  },
   startTimer: function() {
     this.timer = setInterval(() => {
       var newCount = this.state.count - 1;
@@ -36,7 +40,8 @@ var CountDown = React.createClass({
       })
 
       if(newCount === 0) {
-        this.timer = null;
+
+        this.setState({countdownStatus: 'stopped'});
       }
     }, 1000);
   },
