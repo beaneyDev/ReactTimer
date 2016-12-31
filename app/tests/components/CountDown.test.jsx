@@ -40,4 +40,24 @@ describe("handleSetCountDown", () => {
       done();
     }, 3000);
   });
+
+  it("should not decrement when paused", (done) => {
+    var countDown = fetchCountDown(3);
+    countDown.handleStatusChange('paused');
+    setTimeout(() => {
+      expect(countDown.state.count).toBe(3);
+      expect(countDown.state.countdownStatus).toBe('paused');
+      done();
+    }, 1001);
+  });
+
+  it("should all be cleared when stopped", (done) => {
+    var countDown = fetchCountDown(3);
+    countDown.handleStatusChange('stopped');
+    setTimeout(() => {
+      expect(countDown.state.count).toBe(0);
+      expect(countDown.state.countdownStatus).toBe('stopped');
+      done();
+    }, 1001);
+  });
 });

@@ -6,6 +6,11 @@ var TestUtils = require('react-addons-test-utils');
 
 var Controls = require('Controls');
 
+function fetchControls(state) {
+  var controls = TestUtils.renderIntoDocument(<Controls countdownStatus={state}/>);
+  return controls;
+}
+
 describe("Controls", () => {
   it("should exist", () => {
     expect(Controls).toExist();
@@ -27,8 +32,3 @@ describe("Controls", () => {
     })
   })
 });
-
-function fetchControls(state) {
-  var controls = TestUtils.renderIntoDocument(<Controls countDownStatus={state}/>);
-  return controls;
-}
